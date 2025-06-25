@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Arnaud Tenas - PSG Fan Zone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+<style>
+  :root {
+    --psg-blue: #004170;
+    --psg-red: #DA291C;
+    --white: #FFFFFF;
+    --dark-gray: #333;
+    --light-gray: #f9f9f9;
+    --font-family: 'Poppins', sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+  }
+  body {
+    font-family: var(--font-family);
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    line-height: 1.6;
+  }
+  header {
+    background-color: var(--psg-blue);
+    color: var(--white);
+    padding: 1rem 0;
+    text-align: center;
+  }
+  header a.logo {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  .hero {
+    height: 40vh;
+    background: linear-gradient(rgba(0,20,40,0.7), rgba(0,40,80,0.55)),
+      url('https://upload.wikimedia.org/wikipedia/commons/8/8e/Arnaud_Tenas_2019.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    padding: 1rem;
+  }
+  .hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero p {
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+  main.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .profile-image {
+    flex: 0 0 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 0 4px var(--psg-blue);
+  }
+  .profile-image img {
+    width: 100%;
+    display: block;
+  }
+  .profile-info {
+    flex: 1 1 600px;
+  }
+  .profile-info h2 {
+    color: var(--psg-blue);
+    margin-bottom: 1rem;
+  }
+  .profile-info ul {
+    list-style: none;
+  }
+  .profile-info ul li {
+    padding: 0.4rem 0;
+    font-size: 1.1rem;
+  }
+  .profile-info ul li strong {
+    color: var(--psg-red);
+    width: 140px;
+    display: inline-block;
+  }
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: var(--dark-gray);
+    color: var(--white);
+    margin-top: 3rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <a href="#" class="logo">
+    PSG Fan Zone
+  </a>
+</header>
+
+<section class="hero" aria-label="Photo de Arnaud Tenas">
+  <h2>Arnaud Tenas</h2>
+  <p>Gardien de but - Numéro 40</p>
+</section>
+
+<main class="container" aria-label="Profil du joueur Arnaud Tenas">
+  <div class="profile-image">
+    <img src="https://media.psg.fr/image/upload/c_limit,w_641/f_avif/q_85/v1/tenas80_uo4mua?_a=BAVAZGDX0" alt="Photo d'Arnaud Tenas" width="220" height="220" />
+  </div>
+  <div class="profile-info">
+    <h2>Arnaud Tenas</h2>
+    <ul>
+      <li><strong>Numéro :</strong> 40</li>
+      <li><strong>Poste :</strong> Gardien de but</li>
+      <li><strong>Nationalité :</strong> France</li>
+      <li><strong>Date de naissance :</strong> 23 juin 1999</li>
+      <li>
+        <strong>Biographie :</strong>  
+        Arnaud Tenas est un gardien français formé au Paris Saint-Germain. Connu pour ses qualités techniques et son sang-froid, il évolue principalement avec les équipes jeunes et la réserve.
+      </li>
+    </ul>
+    <h3>Statistiques principales</h3>
+    <ul>
+      <li><strong>Matchs joués :</strong> 30+ (réserve et jeunes équipes)</li>
+      <li><strong>Buts encaissés :</strong> N/A</li>
+      <li><strong>Palmarès :</strong> Titulaire en équipes jeunes du PSG</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 PSG Fan Zone. Tous droits réservés. Site de fan non officiel.</p>
+</footer>
+</body>
+</html>

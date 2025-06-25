@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fan Site - Paris Saint-Germain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Ajout de Font Awesome pour les icônes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+/* Variables de couleur et polices */
+:root {
+--psg-blue: #004170;
+--psg-red: #DA291C;
+--white: #FFFFFF;
+--black: #000000;
+--light-gray: #f9f9f9;
+--border-gray: #eef2f5;
+--dark-gray: #333;
+--font-family: 'Poppins', sans-serif;
+}
+
+/* Reset et styles globaux */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+font-family: var(--font-family);
+line-height: 1.6;
+background-color: var(--light-gray);
+color: var(--dark-gray);
+}
+
+.container {
+max-width: 1100px;
+margin: auto;
+padding: 2rem;
+}
+
+h1, h2, h3, h4 {
+color: var(--psg-blue);
+margin-bottom: 0.75rem;
+font-weight: 700;
+}
+
+h2 {
+text-align: center;
+font-size: 2.5rem;
+position: relative;
+padding-bottom: 1rem;
+margin-bottom: 2.5rem;
+}
+
+h2::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 80px;
+height: 4px;
+background-color: var(--psg-red);
+border-radius: 2px;
+}
+
+a {
+text-decoration: none;
+color: var(--psg-red);
+}
+
+/* Header et Navigation */
+header {
+background-color: var(--psg-blue);
+color: var(--white);
+padding: 1rem 0;
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header nav {
+display: flex;
+justify-content: center; /* Centre l'élément principal (le logo) */
+align-items: center; /* Centre verticalement */
+position: relative; /* Garder relative pour le méga-menu */
+max-width: none; /* Supprimer la largeur maximale */
+margin: 0; /* Supprimer la marge automatique */
+padding: 0 2rem;
+width: 100%; /* S'assurer qu'il prend toute la largeur */
+}
+
+header a.logo {
+display: flex;
+align-items: center; /* Alignement vertical pour le logo */
+text-decoration: none;
+margin-left: auto; /* Pousser le logo vers le centre */
+margin-right: auto; /* Pousser le logo vers le centre */
+}
+
+header a.logo img {
+height: 50px;
+margin-right: 15px;
+}
+header .logo h1 {
+font-size: 1.5rem;
+color: var(--white);
+margin-bottom: 0;
+}
+
+/* New Menu Button */
+.menu-button {
+position: absolute; /* On le sort du flux pour ne pas impacter le centrage du logo */
+left: 2rem; /* Le place au bord avec le padding */
+background: none; /* Suppression de l'arrière-plan */
+border: 2px solid var(--white);
+color: var(--white);
+padding: 8px 15px;
+border-radius: 5px;
+cursor: pointer;
+font-weight: 600;
+font-size: 1rem;
+transition: background-color 0.3s ease, color 0.3s ease;
+white-space: nowrap; /* Prevent text wrapping */
+}
+
+.menu-button:hover {
+background-color: var(--white);
+color: var(--psg-blue);
+}
+
+/* Layout for nav items */
+header nav .burger-menu {
+position: absolute; /* On le sort aussi du flux */
+right: 2rem; /* On l'aligne à droite, avec le padding */
+}
+/* Bouton Burger pour mobile */
+.burger-menu {
+display: none;
+cursor: pointer;
+flex-direction: column;
+gap: 5px;
+}
+
+.burger-menu .bar {
+width: 25px;
+height: 3px;
+background-color: var(--white);
+border-radius: 5px;
+transition: all 0.3s ease-in-out;
+}
+
+/* Section Hero */
+.hero {
+height: 60vh;
+min-height: 400px;
+background: linear-gradient(rgba(0, 20, 40, 0.7), rgba(0, 40, 80, 0.55)), url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=2835&auto=format&fit=crop') no-repeat center center/cover;
+color: var(--white);
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+/* Ajout de padding horizontal */
+padding: 0 1rem;
+}
+
+.hero h2 {
+font-size: 3rem;
+font-weight: 700;
+color: var(--white);
+text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+animation: fadeInUp 1s ease-out; /* Animation à l'apparition */
+}
+
+.hero p {
+font-size: 1.5rem;
+text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+font-style: italic;
+}
+
+/* Mega Menu Dropdown */
+.mega-menu-container {
+position: absolute;
+top: 100%; /* Position right below the nav bar */
+left: 0;
+right: 0;
+background-color: var(--psg-blue);
+z-index: 1500;
+opacity: 0;
+visibility: hidden;
+transform: translateY(-10px);
+transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+border-bottom-left-radius: 8px;
+border-bottom-right-radius: 8px;
+}
+
+.mega-menu-container.menu-open {
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+}
+
+.mega-menu-container .menu-content {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted for better 4-column layout */
+gap: 30px; /* Reduced gap for a cleaner look */
+max-width: 1100px; /* Match the nav and main container width */
+margin: 0 auto;
+padding: 2.5rem 2rem; /* Consistent horizontal padding with nav */
+color: var(--white);
+}
+
+.mega-menu-container .menu-column {
+/* To prevent a single category from being too long */
+break-inside: avoid;
+text-align: left; /* Ensure content within columns is left-aligned */
+}
+
+.mega-menu-container .menu-column h3 {
+color: var(--psg-red); /* Category titles in red */
+font-size: 1.6rem;
+margin-bottom: 15px;
+border-bottom: 2px solid rgba(255,255,255,0.2);
+padding-bottom: 5px;
+}
+
+.mega-menu-container .menu-column ul {
+list-style: none;
+padding: 0;
+margin-bottom: 30px; /* Space between categories */
+}
+
+/* Specific styles for menu links */
+.mega-menu-container .menu-column ul li a {
+color: var(--white);
+font-size: 1.1rem;
+font-weight: 400;
+transition: color 0.3s ease;
+display: block;
+padding: 3px 0;
+}
+
+.mega-menu-container .menu-column ul li a:hover {
+color: var(--psg-red);
+text-decoration: underline;
+}
+
+/* Cartes (News & Équipe) */
+.cards-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 1.5rem;
+margin-top: 1.5rem;
+}
+
+.card {
+background: var(--white);
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
+overflow: hidden; /* Important pour border-radius sur l'image */
+/* Animation de base, l'Observer l'activera */
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+transform: translateY(-8px);
+box-shadow: 0 10px 15px rgba(0, 65, 112, 0.1), 0 4px 6px rgba(0, 65, 112, 0.05);
+}
+
+.card img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+}
+
+.card-content {
+padding: 1.5rem;
+/* flex-grow pour que le contenu prenne toute la hauteur */
+}
+
+.card h3 {
+font-size: 1.25rem;
+}
+
+.card p {
+margin-bottom: 1rem;
+}
+
+.card a {
+display: inline-block;
+font-weight: 700;
+transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.card a:hover {
+color: var(--psg-blue);
+transform: translateX(4px);
+}
+
+.player-card {
+text-align: center;
+padding-bottom: 1rem;
+}
+
+.player-card img {
+width: 120px;
+height: 120px;
+border-radius: 50%;
+margin: 1rem auto;
+object-fit: cover;
+border: 4px solid var(--border-gray);
+box-shadow: 0 0 0 4px var(--psg-blue);
+}
+
+/* --- NOUVEAUX STYLES POUR LES ACTIONS DU HEADER --- */
+
+.header-actions {
+position: absolute;
+right: 2rem;
+display: flex; /* Garder flex pour l'alignement interne */
+align-items: center;
+gap: 1rem;
+}
+
+.header-action-btn {
+background: none;
+border: 1px solid var(--white);
+color: var(--white);
+padding: 6px 12px;
+border-radius: 20px;
+cursor: pointer;
+font-weight: 600;
+font-size: 0.9rem;
+transition: background-color 0.3s ease, color 0.3s ease;
+display: flex;
+align-items: center;
+gap: 8px;
+text-decoration: none;
+}
+
+.header-action-btn:hover {
+background-color: var(--white);
+color: var(--psg-blue);
+}
+
+/* Search Container */
+.search-container {
+display: flex;
+align-items: center;
+background-color: rgba(255, 255, 255, 0.15);
+border-radius: 20px;
+padding: 2px;
+transition: background-color 0.3s ease;
+}
+
+.search-container:hover {
+background-color: var(--white);
+}
+.search-container:hover .search-icon {
+color: var(--psg-blue);
+}
+.search-container:hover .search-input {
+width: 150px;
+padding-left: 8px;
+}
+
+.search-icon {
+color: var(--white);
+cursor: pointer;
+font-size: 1rem;
+padding: 6px 8px;
+transition: color 0.3s ease;
+}
+
+.search-input {
+width: 0;
+border: none;
+outline: none;
+background: transparent;
+color: var(--dark-gray);
+padding-left: 0;
+font-family: var(--font-family);
+font-size: 0.9rem;
+transition: width 0.4s ease, padding-left 0.4s ease;
+}
+
+/* Footer */
+footer {
+background-color: var(--dark-gray);
+color: var(--white);
+text-align: center;
+padding: 2rem;
+margin-top: 3rem;
+}
+
+.footer-content {
+max-width: 1100px;
+margin: auto;
+}
+
+.social-links {
+margin-bottom: 1rem;
+}
+
+.social-links a {
+color: var(--white);
+margin: 0 15px;
+font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+.hero h2 {
+font-size: 2.2rem;
+}
+
+.header-actions {
+display: none; /* Cacher les actions sur mobile */
+}
+
+/* Hide desktop menu button and show burger menu on mobile */
+.menu-button { display: none; }
+.burger-menu { display: flex; }
+
+/* Remove header ul related styles as it's removed */
+/* header ul.nav-active {
+display: flex;
+}
+
+header ul li {
+margin: 10px 0;
+}
+
+/* Animation du bouton burger (still relevant) */
+.burger-menu.toggle .bar:nth-child(1) {
+transform: rotate(-45deg) translate(-5px, 6px);
+}
+.burger-menu.toggle .bar:nth-child(2) {
+opacity: 0;
+}
+.burger-menu.toggle .bar:nth-child(3) {
+transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.container {
+padding: 1.5rem;
+}
+h2 {
+font-size: 2rem;
+}
+
+/* Responsive adjustments for the new menu */
+.mega-menu-container .menu-content {
+grid-template-columns: 1fr; /* Single column on small screens */
+gap: 20px;
+padding: 1.5rem;
+}
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+</style>
+</head>
+<body>
+<header>
+<nav>
+<button class="menu-button" id="open-menu-btn">Menu</button>
+<a href="index.html" class="logo">
+<img src="https://upload.wikimedia.org/wikipedia/fr/thumb/8/86/Paris_Saint-Germain_Logo.svg/1200px-Paris_Saint-Germain_Logo.svg.png" alt="Logo PSG"> 
+<h1>PSG Fan Zone</h1>
+</a>
+
+<!-- Actions de droite pour le bureau -->
+<div class="header-actions">
+<div class="search-container">
+<i class="fas fa-search search-icon"></i>
+<input type="search" placeholder="Rechercher..." class="search-input">
+</div>
+<a href="contact.html" class="header-action-btn">Contact</a>
+<a href="se-connecter.html" class="header-action-btn">
+<i class="fas fa-user"></i>
+<span>Se connecter</span>
+</a>
+</div>
+
+<div class="burger-menu" id="burger-menu">
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+</div>
+<!-- Mega Menu Dropdown -->
+<div id="mega-menu" class="mega-menu-container">
+<div class="menu-content">
+<div class="menu-column">
+<h3>ÉQUIPE PREMIÈRE</h3>
+<ul role="menu">
+<li role="none"><a role="menuitem" href="equipe-premiere/actualite.html">Actualité</a></li>
+<li role="none"><a role="menuitem" href="equipe-premiere/effectif.html">Effectif</a></li>
+<li role="none"><a role="menuitem" href="equipe-premiere/calendrier-resultats.html">Calendrier et résultats</a></li>
+<li role="none"><a role="menuitem" href="equipe-premiere/classement.html">Classement</a></li>
+<li role="none"><a role="menuitem" href="equipe-premiere/palmares.html">Palmarès</a></li>
+</ul>
+
+<h3>FÉMININES</h3>
+<ul>
+<li><a href="#">Actualité</a></li>
+<li><a href="#">Effectif</a></li>
+<li><a href="#">Calendrier et résultats</a></li>
+<li><a href="#">Classement</a></li>
+<li><a href="#">Palmarès</a></li>
+</ul>
+
+<h3>Association</h3>
+<ul>
+<li><a href="#">Association</a></li>
+</ul>
+</div>
+
+<div class="menu-column">
+<h3>MÉDIAS</h3>
+<ul role="menu">
+<li role="none"><a role="menuitem" href="medias/psg-tv.html">PSG TV</a></li>
+<li role="none"><a role="menuitem" href="medias/psg-tv-premium.html">PSG TV Premium</a></li>
+<li role="none"><a role="menuitem" href="medias/photos.html">Photos</a></li>
+<li role="none"><a role="menuitem" href="medias/carte-blanche.html">Carte Blanche</a></li>
+<li role="none"><a role="menuitem" href="medias/podcasts.html">Podcasts</a></li>
+</ul>
+
+<h3>FANS</h3>
+<ul role="menu">
+<li role="none"><a role="menuitem" href="fans/actualite.html">Actualité</a></li>
+<li role="none"><a role="menuitem" href="fans/application-mobile.html">Application mobile</a></li>
+<li role="none"><a role="menuitem" href="fans/supporters-clubs.html">Supporters Clubs</a></li>
+<li role="none"><a role="menuitem" href="fans/boutiques-officielles.html">Boutiques officielles</a></li>
+<li role="none"><a role="menuitem" href="fans/ou-voir-matchs.html">Où voir nos matchs</a></li>
+<li role="none"><a role="menuitem" href="fans/psg-fan-token.html">PSG Fan Token</a></li>
+</ul>
+</div>
+
+<div class="menu-column">
+<h3>LE CLUB</h3>
+<ul role="menu">
+<li role="none"><a role="menuitem" href="le-club/actualite.html">Actualité</a></li>
+<li role="none"><a role="menuitem" href="le-club/identite.html">Identité</a></li>
+<li role="none"><a role="menuitem" href="le-club/histoire.html">Histoire</a></li>
+<li role="none"><a role="menuitem" href="le-club/presidence.html">Présidence</a></li>
+<li role="none"><a role="menuitem" href="le-club/parc-des-princes.html">Parc des Princes</a></li>
+<li role="none"><a role="menuitem" href="le-club/campus-psg.html">Campus Paris Saint-Germain</a></li>
+<li role="none"><a role="menuitem" href="le-club/partenaires.html">Partenaires</a></li>
+<li role="none"><a role="menuitem" href="le-club/carrieres.html">Carrières</a></li>
+<li role="none"><a role="menuitem" href="le-club/cite-educative.html">Cité éducative</a></li>
+<li role="none"><a role="menuitem" href="le-club/psg-labs.html">PSG Labs</a></li>
+</ul>
+</div>
+
+<div class="menu-column">
+<h3>AUTOUR DU CLUB</h3>
+<ul role="menu">
+<li role="none"><a role="menuitem" href="autour-du-club/psg-for-communities.html">PSG For Communities</a></li>
+<li role="none"><a role="menuitem" href="autour-du-club/academy.html">Academy</a></li>
+<li role="none"><a role="menuitem" href="autour-du-club/club-tour.html">Club tour</a></li>
+</ul>
+
+<h3>SHOP</h3>
+<ul role="menu">
+<li role="none"><a role="menuitem" href="shop/billetterie.html">Billetterie</a></li>
+<li role="none"><a role="menuitem" href="shop/boutique.html">Boutique</a></li>
+<li role="none"><a role="menuitem" href="shop/tirages-affiches.html">Tirages et affiches</a></li>
+<li role="none"><a role="menuitem" href="shop/maillots-portes.html">Maillots portés</a></li>
+</ul>
+</div>
+</div>
+</div>
+</nav>
+</header>
+
+<main>
+<section class="hero">
+<div class="hero-text">
+<h2>ICI C'EST PARIS!</h2>
+<p>Le PSG sur le toit de l'Europe et en route pour conquérir le monde !</p>
+</div>
+</section>
+
+<section id="news" class="container">
+<h2>Dernières Actualités</h2>
+<div class="cards-container">
+<article class="card">
+<img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=2835&auto=format&fit=crop" alt="Joueur célébrant un but">
+<div class="card-content">
+<h3>Le PSG remporte la Ligue des Champions !</h3>
+<p>Au terme d'une finale haletante, Paris a soulevé son premier trophée de la Ligue des Champions !</p>
+<a href="#">Lire la suite &rarr;</a>
+</div>
+</article>
+<article class="card">
+<img src="https://images.unsplash.com/photo-1517543773952-43c273a51674?q=80&w=2940&auto=format&fit=crop" alt="Stade du Parc des Princes">
+<div class="card-content">
+<h3>Objectif Coupe du Monde des Clubs</h3>
+<p>À peine sacrés champions d'Europe, les Parisiens sont déjà au cœur de la bataille pour le titre mondial.</p>
+<a href="#">Lire la suite &rarr;</a>
+</div>
+</article>
+<article class="card">
+<img src="https://images.unsplash.com/photo-1551958214-2d5b2df42a89?q=80&w=2940&auto=format&fit=crop" alt="Joueurs à l'entraînement">
+<div class="card-content">
+<h3>Le groupe vise le doublé historique</h3>
+<p>L'équipe est concentrée et déterminée à ramener la Coupe du Monde des Clubs à Paris.</p>
+<a href="#">Lire la suite &rarr;</a>
+</div>
+</article>
+</div>
+</section>
+<footer id="contact">
+<div class="footer-content">
+<div class="social-links">
+<a href="#" aria-label="Twitter">Twitter</a>
+<a href="#" aria-label="Instagram">Instagram</a>
+<a href="#" aria-label="Facebook">Facebook</a>
+</div>
+<p>&copy; 2024 PSG Fan Zone. Tous droits réservés. Ceci est un site de fan non officiel.</p>
+</div>
+</footer>
+
+<script>
+// Animation simple pour les cartes au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+// --- Menu Management ---
+const menuButton = document.getElementById('open-menu-btn');
+const megaMenu = document.getElementById('mega-menu');
+const burgerMenu = document.getElementById('burger-menu');
+
+const toggleMegaMenu = () => {
+if (megaMenu) {
+megaMenu.classList.toggle('menu-open');
+}
+if (burgerMenu && window.innerWidth <= 768) {
+burgerMenu.classList.toggle('toggle');
+}
+};
+
+if (menuButton) {
+menuButton.addEventListener('click', (event) => {
+event.stopPropagation(); // Prevent click from bubbling up to the document
+toggleMegaMenu();
+});
+}
+
+if (burgerMenu) {
+burgerMenu.addEventListener('click', (event) => {
+event.stopPropagation();
+toggleMegaMenu();
+});
+}
+
+document.addEventListener('click', (event) => {
+if (megaMenu && megaMenu.classList.contains('menu-open') &&
+!megaMenu.contains(event.target) &&
+event.target !== menuButton &&
+event.target !== burgerMenu &&
+!burgerMenu.contains(event.target)
+) {
+toggleMegaMenu();
+}
+});
+
+document.addEventListener('keydown', (event) => {
+if (event.key === 'Escape' && megaMenu && megaMenu.classList.contains('menu-open')) {
+toggleMegaMenu();
+}
+});
+
+// On utilise Intersection Observer pour déclencher l'animation quand l'élément devient visible
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+// Si l'élément est visible à 10% ou plus
+if (entry.isIntersecting) {
+entry.target.style.animation = `fadeInUp 0.6s ease-out forwards`;
+observer.unobserve(entry.target); // On arrête d'observer une fois l'animation jouée
+}
+});
+}, { threshold: 0.1 }); // Déclenche quand 10% de l'élément est visible
+
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+card.style.opacity = 0; // Cache les cartes au début
+observer.observe(card);
+});
+});
+
+</script>
+</body>
+</html>

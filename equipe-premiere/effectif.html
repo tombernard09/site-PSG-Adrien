@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Effectif du PSG</title>
+
+  <style>
+    /* Police importée pour un look plus moderne */
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+
+    /* Variables de couleurs PSG */
+
+    :root {
+
+      --psg-blue: #004170;
+
+      --psg-red: #DA291C;
+
+      --background-grey: #f4f6f8;
+
+      --card-background: #ffffff;
+
+      --text-color: #333;
+
+    }
+
+
+    /* Style général de la page */
+
+    body {
+
+      font-family: 'Inter', sans-serif;
+
+      background-color: var(--background-grey);
+
+      color: var(--text-color);
+
+      margin: 0;
+
+      padding: 20px;
+
+    }
+
+
+    .container {
+
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding: 20px;
+
+    }
+
+
+    /* Titre principal avec les couleurs du club */
+
+    .header {
+
+      text-align: center;
+
+      margin-bottom: 40px;
+
+      border-bottom: 4px solid var(--psg-blue);
+
+      padding-bottom: 20px;
+
+    }
+
+
+    .header h1 {
+
+      font-size: 3em;
+
+      font-weight: 900;
+
+      color: var(--psg-blue);
+
+      margin: 0;
+
+    }
+
+
+    .header h1 span {
+
+      color: var(--psg-red);
+
+    }
+
+
+    /* Titres de section (Gardiens, Défenseurs, etc.) */
+
+    h2 {
+
+      font-size: 2em;
+
+      font-weight: 700;
+
+      color: var(--psg-blue);
+
+      border-left: 5px solid var(--psg-red);
+
+      padding-left: 15px;
+
+      margin-top: 40px;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    /* Grille pour afficher les joueurs */
+
+    .player-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+
+      gap: 30px;
+
+    }
+
+
+    /* Carte pour chaque joueur */
+
+    .player-card {
+
+      background-color: var(--card-background);
+
+      border-radius: 15px;
+
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+      padding: 20px;
+
+      text-align: center;
+
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+    }
+
+
+    .player-card:hover {
+
+      transform: translateY(-8px);
+
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+    }
+
+
+    .player-photo {
+
+      width: 120px;
+
+      height: 120px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      border: 5px solid var(--psg-blue);
+
+      margin-bottom: 15px;
+
+      background-color: #e9ecef;
+
+    }
+
+
+    .player-number {
+
+      font-size: 2.5em;
+
+      font-weight: 900;
+
+      color: var(--psg-red);
+
+      line-height: 1;
+
+    }
+
+
+    .player-name {
+
+      font-size: 1.2em;
+
+      font-weight: 700;
+
+      margin-top: 8px;
+
+    }
+
+
+    /* MISE EN AVANT SPÉCIALE POUR OUSMANE DEMBÉLÉ */
+
+    .player-card.ousmane {
+
+      background: linear-gradient(145deg, var(--psg-blue) 0%, #002D4F 100%);
+
+      color: white;
+
+      transform: scale(1.05);
+
+      box-shadow: 0 10px 30px rgba(218, 41, 28, 0.4);
+
+    }
+
+
+    .player-card.ousmane:hover {
+
+      box-shadow: 0 12px 40px rgba(218, 41, 28, 0.5);
+
+    }
+
+
+    .player-card.ousmane .player-photo {
+
+      border-color: white;
+
+    }
+
+
+    .player-card.ousmane .player-number,
+
+    .player-card.ousmane .player-name {
+
+      color: white;
+
+    }
+
+
+    .redirect-button {
+
+      display: inline-block;
+
+      margin-top: 15px;
+
+      padding: 12px 25px;
+
+      background-color: var(--psg-red);
+
+      color: white;
+
+      text-decoration: none;
+
+      font-weight: 700;
+
+      border-radius: 50px;
+
+      border: 2px solid white;
+
+      transition: background-color 0.2s ease, transform 0.2s ease;
+
+    }
+
+
+    .redirect-button:hover {
+
+      background-color: #B81F14;
+
+      transform: scale(1.1);
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <div class="container">
+
+    <div class="header">
+
+      <h1>Effectif du <span>Paris Saint-Germain</span></h1>
+
+      <p>Saison 2023-2024</p>
+
+    </div>
+
+
+    <!-- GARDIENS -->
+
+    <h2>Gardiens</h2>
+
+    <div class="player-grid">
+
+      <div class="player-card">
+
+        <img src="https://media.psg.fr/image/upload/c_limit,w_641/f_avif/q_85/v1/hero_24-25_0001_donnarumma_yut44t?_a=BAVAZGDX0"
+          alt="Photo de Donnarumma" class="player-photo">
+
+        <div class="player-number">1</div>
+        <div class="player-name">G. Donnarumma</div>
+
+        <a href="donnarumma.html" class="redirect-button">
+
+          Voir sa fiche
+
+        </a>
+
+      </div>
+
+      <div class="player-card">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM4VD19GJBMAlK3SMGgEoLmE0BfwFVffqynw&s" alt="Photo de Navas"
+          class="player-photo">
+
+        <div class="player-number">1</div>
+        <div class="player-name">Keylor Navas</div>
+
+        <a href="navas.html" class="redirect-button">
+
+          Voir sa fiche
+
+        </a>
+
+      </div>
+
+      <div class="player-card">
+
+        <img src="https://media.psg.fr/image/upload/c_limit,w_641/f_avif/q_85/v1/tenas80_uo4mua?_a=BAVAZGDX0" alt="Photo de Tenas"
+          class="player-photo">
+
+        <div class="player-number">80</div>
+        <div class="player-name">Arnau Tenas</div>
+
+        <a href="tenas.html" class="redirect-button">
+
+          Voir sa fiche
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- DÉFENSEURS -->
+
+    <h2>Défenseurs</h2>
+
+    <div class="player-grid">
+
+      <div class="player-card">
+
+        <img src="https://media.psg.fr/image/upload/c_limit,w_641/f_avif/q_85/v1/hero_24-25_0023_marquinhos_mxsi9u?_a=BAVAZGDX0"
+          alt="Photo de Marquinhos" class="player-photo">
+
+        <div class="player-number">5</div>
+        <div class="player-name">Marquinhos</div>
+
+        <a href="marquinhos.html" class="redirect-button">
+
+          Voir sa fiche
+
+        </a>
+
+      </div>
+
+      <div class="player-card">
+
+        <img src="https://media.psg.fr/image/upload/c_limit,w_641/f_avif/q_85/v1/hakimi2-hover_y9oxbm?_a=BAVAZGDX0" alt="Photo de Hakimi"
+          class="player-photo">
+
+        <div class="player-number">2</div>
+        <div class="player-name">Achraf Hakimi</div>
+
+        <a href="hakimi.html" class="redirect-button">
+
+          Voir sa fiche
+
+        </a>
+
+      </div>
+
+      <div class="player-card">
+
+        <img src="https://media.psg.fr/image/upload/c_limit,w_641/f_avif/q_85/v1/hero_24-25_hernandez_sl0ncy?_a=BAVAZGDX0" alt="Photo de Hernandez"
+          class="player-photo">
+
+        <div class="player-number">21</div>
+        <div class="player-name">L. Hernandez</div>
+
+        <a href="hernandez.html" class="redirect-button">
+
+          Voir sa fiche
+
+        </a>
+
+      </div>
+
+      <div class="player-card">
+
+        <img src="https://media.psg.fr/image/upload/c_limit,w_641/f_avif/q_85/v1/mendes25-hover_iojye7?_a=BAVAZGDX0"
+          alt="Photo de Nuno Mendes" class="player-photo">
+
+        <div class="player-number">25</div>
+        <div class="player-name">Nuno Mendes</div>
+
+        <a href="mendes.html" class="redirect-button">
+
+          Voir sa fiche
+
+        </a>
+
+      </div>
+
+      <div class="player-card">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdEMTQdUnCfJE91MmBzZkgxQmV02J5xoHKYda6R50FYy0euvOlOTgr9yJ-FRygNIKY6-E&usqp=CAU" alt="Photo de Skriniar"
+          class="player-photo">
+
+        <div class="player-number">37</div>
+        <div class="player-name">Milan Škriniar</div>
+
+        <a href="skriniar.html" class="redirect-button">
+
+          Voir sa fiche
+
+        </a>
+
+      </div>
+
+    </div>
+
+<!-- MILIEUX -->
+<h2>Milieux</h2>
+<div
+class="player-grid">
+<div
+class="player-card">
+<img
+src="https://assets-fr.imgfoot.com/media/cache/1200x1200/maxsportsworldthree245814.jpg"
+alt="Photo de Ugarte"
+class="player-photo">
+<div
+class="player-number">4</div><div
+class="player-name">Manuel Ugarte</div>
+<a
+href="ugarte.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+<div
+class="player-card">
+<img
+src="https://la1ere.franceinfo.fr/image/7wBu5WlEDijrqvlk-QmgXIpTcPk/1200x1200/outremer/2023/11/17/066-dppi-40023078-008-6557234fc6785494508680.jpg"
+alt="Photo de Zaïre-Emery"
+class="player-photo">
+<div
+class="player-number">33</div><div
+class="player-name">W. Zaïre-Emery</div>
+<a
+href="zaïre-emery.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+<div
+class="player-card">
+<img
+src="https://allezparis.b-cdn.net/wp-content/uploads/2024/05/23-615x410.jpg"
+alt="Photo de Vitinha"
+class="player-photo">
+<div
+class="player-number">17</div><div
+class="player-name">Vitinha</div>
+<a
+href="vitinha.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+<div
+class="player-card">
+<img
+src="https://photo.maxifoot.fr/paris-sg-ruiz-3.jpg"
+alt="Photo de Fabián Ruiz"
+class="player-photo">
+<div
+class="player-number">8</div><div
+class="player-name">Fabián Ruiz</div>
+<a
+href="ruiz.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+<div
+class="player-card">
+<img
+src="https://www.lequipe.fr/_medias/img-photo-jpg/kang-in-lee-sous-le-maillot-du-psg-p-lahalle-l-equipe/1500000002168665/0:0,1999:1332-828-552-75/f685e.jpg"
+alt="Photo de Lee Kang-in"
+class="player-photo">
+<div
+class="player-number">19</div><div
+class="player-name">Lee Kang-in</div>
+<a
+href="kang-in.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+<div
+class="player-card">
+<img
+src="https://s3.eu-west-3.amazonaws.com/ligue1.image/cms/0701_psg_neves_4_4424dcf763.jpg"
+alt="Photo de Joao Neves"
+class="player-photo">
+<div
+class="player-number">87</div><div
+class="player-name">Joao Neves</div>
+<a
+href="neves.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+</div>
+
+<!-- ATTAQUANTS -->
+<h2>Attaquants</h2>
+<div
+class="player-grid">
+<div
+class="player-card">
+<img
+src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThbQCLvYcgLdD2Wrl1B2s5BiUs-VNnnMu6fQ&s"
+alt="Photo de Doué"
+class="player-photo">
+<div
+class="player-number">14</div><div
+class="player-name">Désirée Doué</div>
+<a
+href="doué.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+
+<!-- CARTE SPÉCIALE OUSMANE DEMBÉLÉ -->
+<div
+class="player-card ousmane">
+<img
+src="https://www.franceinfo.fr/pictures/Bg4IXe0fJ7-cqz-0i50-cg54YT0/0x38:2404x1390/fit-in/720x/filters:format(jpg)/2025/01/05/000-36t33qn-677acf1ae1950606204072.jpg"
+alt="Photo de Dembélé"
+class="player-photo">
+<div
+class="player-number">10</div>
+<div
+class="player-name">Ousmane Dembélé</div>
+<a
+href="dembélé.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+
+<div
+class="player-card">
+<img
+src="https://assets.goal.com/images/v3/blt9e7f08063582c5df/GettyImages-1687263820.jpg?auto=webp&format=pjpg&width=3840&quality=60"
+alt="Photo de Ramos"
+class="player-photo">
+<div
+class="player-number">9</div><div
+class="player-name">Gonçalo Ramos</div>
+<a
+href="ramos.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+<div
+class="player-card">
+<img
+src="https://assets-fr.imgfoot.com/media/cache/1200x1200/khvicha-kvaratskhelia-67a6811e60db5.jpg"
+alt="Photo de Khvicha Kvaratskhelia "
+class="player-photo">
+<div
+class="player-number">7</div><div
+class="player-name">Khvicha Kvaratskhelia</div>
+<a
+href="kvaratskhelia.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+<div
+class="player-card">
+<img
+src="https://www.lejdd.fr/lmnr/var/jdd/public/media/image/2025/02/23/21/foot-ol-psg-barcola-acchristian-hartmannreuters.jpg?VersionId=OVE3vflYKisUX5EkHaWFq7WBRbDcW3Qm"
+alt="Photo de Barcola"
+class="player-photo">
+<div
+class="player-number">29</div><div
+class="player-name">Bradley Barcola</div>
+<a
+href="bradley.html"
+class="redirect-button">
+Voir sa fiche
+</a>
+</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maintenance - Site PSG Fan Zone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Variables de couleur et polices (reprises de votre site) */
+    :root {
+      --psg-blue: #004170;
+      --psg-red: #DA291C;
+      --white: #FFFFFF;
+      --black: #000000;
+      --light-gray: #f9f9f9;
+      --border-gray: #eef2f5;
+      --dark-gray: #333;
+      --font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-family);
+      margin: 0;
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+      text-align: center;
+      padding: 2rem;
+      box-sizing: border-box; /* Inclut le padding dans la hauteur/largeur */
+    }
+
+    .maintenance-container {
+      background-color: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      padding: 3rem 2rem;
+      max-width: 700px;
+      width: 100%;
+      border-top: 8px solid var(--psg-blue); /* Touche de couleur PSG */
+    }
+
+    .maintenance-icon {
+      font-size: 4rem; /* Grande icône pour attirer l'attention */
+      color: var(--psg-red);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: var(--psg-blue);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .contact-link {
+      display: inline-block;
+      color: var(--psg-blue);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--psg-red);
+    }
+
+    /* Optionnel: pour le pied de page si vous voulez le réutiliser */
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .maintenance-icon {
+        font-size: 3rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .maintenance-container {
+        padding: 2rem 1rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="maintenance-container">
+    <div class="maintenance-icon">⚙️</div> <h1>Site en maintenance</h1>
+    <p>Nous sommes actuellement en train d'améliorer notre site pour vous offrir une meilleure expérience.</p>
+    <p>Merci de votre patience et de votre compréhension. Nous serons de retour très bientôt !</p>
+    <p>En attendant, vous pouvez nous suivre sur nos réseaux sociaux ou nous contacter si besoin.</p>
+    <a href="mailto:votre-email@example.com" class="contact-link">Contactez-nous</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 PSG Fan Zone. Tous droits réservés. Ceci est un site de fan non officiel.</p>
+  </footer>
+
+</body>
+</html>

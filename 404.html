@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erreur 404 - Page non trouvée</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Variables de couleur et polices (reprises de votre site) */
+    :root {
+      --psg-blue: #004170;
+      --psg-red: #DA291C;
+      --white: #FFFFFF;
+      --black: #000000;
+      --light-gray: #f9f9f9;
+      --border-gray: #eef2f5;
+      --dark-gray: #333;
+      --font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-family);
+      margin: 0;
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+      text-align: center;
+      padding: 2rem;
+      box-sizing: border-box; /* Inclut le padding dans la hauteur/largeur */
+    }
+
+    .error-container {
+      background-color: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      padding: 3rem 2rem;
+      max-width: 600px;
+      width: 100%;
+      border-top: 8px solid var(--psg-red); /* Touche de couleur PSG */
+    }
+
+    h1 {
+      font-size: 5rem;
+      color: var(--psg-blue);
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--dark-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .home-link {
+      display: inline-block;
+      background-color: var(--psg-blue);
+      color: var(--white);
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-size: 1rem;
+    }
+
+    .home-link:hover {
+      background-color: #002c4d; /* Un bleu plus foncé au survol */
+      transform: translateY(-2px);
+    }
+
+    .home-link:active {
+      transform: translateY(0);
+    }
+
+    /* Optionnel: pour le pied de page si vous voulez le réutiliser */
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 4rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .error-container {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="error-container">
+    <h1>404</h1>
+    <h2>Oups ! Page non trouvée.</h2>
+    <p>La page que vous avez demandée n'existe malheureusement pas ou a été déplacée.</p>
+    <p>Ne vous inquiétez pas, vous pouvez retourner à la page d'accueil pour continuer votre exploration du PSG !</p>
+    <a href="index.html" class="home-link">Retour à l'accueil</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 PSG Fan Zone. Tous droits réservés. Ceci est un site de fan non officiel.</p>
+  </footer>
+
+</body>
+</html>

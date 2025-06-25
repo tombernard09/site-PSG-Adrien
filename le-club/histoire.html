@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Histoire du PSG - Fan Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    /* (Le même CSS que celui que tu as fourni, collé ici pour le style global) */
+    :root {
+      --psg-blue: #004170;
+      --psg-red: #DA291C;
+      --white: #FFFFFF;
+      --black: #000000;
+      --light-gray: #f9f9f9;
+      --border-gray: #eef2f5;
+      --dark-gray: #333;
+      --font-family: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      line-height: 1.6;
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--psg-blue);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      position: relative;
+      padding-bottom: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--psg-red);
+      border-radius: 2px;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--psg-red);
+    }
+
+    header {
+      background-color: var(--psg-blue);
+      color: var(--white);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    header nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      max-width: none;
+      margin: 0;
+      padding: 0 2rem;
+      width: 100%;
+    }
+
+    header a.logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    header a.logo img {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    header .logo h1 {
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 0;
+    }
+
+    .menu-button {
+      position: absolute;
+      left: 2rem;
+      background: none;
+      border: 2px solid var(--white);
+      color: var(--white);
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .menu-button:hover {
+      background-color: var(--white);
+      color: var(--psg-blue);
+    }
+
+    .burger-menu {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      position: absolute;
+      right: 2rem;
+    }
+
+    .burger-menu .bar {
+      width: 25px;
+      height: 3px;
+      background-color: var(--white);
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hero {
+      height: 40vh;
+      min-height: 300px;
+      background: linear-gradient(rgba(0, 20, 40, 0.7), rgba(0, 40, 80, 0.55)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Parc_des_Princes_-_Paris_Saint-Germain_FC_2.JPG/1920px-Parc_des_Princes_-_Paris_Saint-Germain_FC_2.JPG') no-repeat center center/cover;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    .container img {
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    article {
+      margin-bottom: 2rem;
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    article h3 {
+      margin-bottom: 1rem;
+      color: var(--psg-blue);
+    }
+
+    article p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      color: var(--dark-gray);
+    }
+
+    footer {
+      background-color: var(--dark-gray);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .social-links {
+      margin-bottom: 1rem;
+    }
+
+    .social-links a {
+      color: var(--white);
+      margin: 0 15px;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+
+      .menu-button {
+        display: none;
+      }
+
+      .burger-menu {
+        display: flex;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <button class="menu-button" id="open-menu-btn">Menu</button>
+      <a href="file:///Users/stagiaire/Desktop/site-PSG-Adrien/index.html" class="logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/fr/thumb/8/86/Paris_Saint-Germain_Logo.svg/1200px-Paris_Saint-Germain_Logo.svg.png"
+          alt="Logo PSG" />
+        <h1>PSG Fan Zone</h1>
+      </a>
+
+      <div class="header-actions">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="search" placeholder="Rechercher..." class="search-input" />
+        </div>
+        <a href="file:///Users/stagiaire/Desktop/site-PSG-Adrien/contact.html" class="header-action-btn">Contact</a>
+        <a href="file:///Users/stagiaire/Desktop/site-PSG-Adrien/se-connecter.html" class="header-action-btn">
+          <i class="fas fa-user"></i>
+          <span>Se connecter</span>
+        </a>
+      </div>
+
+      <div class="burger-menu" id="burger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <!-- Mega Menu Dropdown (simplifié ou identique à ta page principale si besoin) -->
+
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Histoire du Paris Saint-Germain</h2>
+        <p>Découvrez les origines et les moments clés du club parisien.</p>
+      </div>
+    </section>
+
+
+    <center>
+      <h1>Le Paris Saint-Germain a vu le jour le 12 août 1970, fruit de la fusion entre un Paris FC créé un an plus
+        tôt pour combler l’absence d’un club de haut niveau dans la capitale, et le Stade Sangermanois, fondé en 1904
+        à Saint-Germain-en- Laye, ville natale du Roi Louis XIV.</h1>
+    </center>
+
+    <section class="container">
+      <article>
+        <h3>L'évolution des logos du PSG !</h3>
+        <img src="https://logos-world.net/wp-content/uploads/2020/07/PSG-Logo-History.jpg" alt="">
+      </article>
+
+      <article>
+        <h3>PREMIERS TITRES</h3>
+        <p>Grâce à l’appui des médias et de 20 000 souscripteurs, « socios » de la première heure, Paris se dote
+          d’une équipe qui va prendre son essor, en 1973, lorsque le club est repris par le couturier Daniel Hechter,
+          qui dessinera son maillot. Entraîné par Just Fontaine, une gloire du football national, le Paris
+          Saint-Germain accède à la Première Division un an plus tard et va peu à peu attirer ses premières stars
+          telles que Mustapha Dahleb et Carlos Bianchi.</p>
+        <img
+          src="https://www.psg.fr/media/36000/club-histoire-bianchi.jpg?width=500&height=332.75960986804364&bgcolor=ffffff"
+          alt="">
+        <p>En 1978, Daniel Hechter cède la place à Francis Borelli, dont la présidence sera celle des premiers titres
+          conquis par le jeune club rouge et bleu, les Coupes de France 1982 et 1983 et le titre de champion de France
+          en 1986, au cœur d’une décennie illuminée par les figures de Safet Susic, Luis Fernandez et Dominique
+          Rocheteau.</p>
+      </article>
+
+      <article>
+        <h3>LA PERIODE CANAL+</h3>
+        <p>Plus tard, l’ère Canal+, qui s’ouvre en 1991, propulse Paris dans la sphère des grands clubs européens :
+          entre 1993 et 1997, le club participe à cinq demi-finales continentales d’affilée. Au passage, porté par la
+          grâce des David Ginola, George Weah et autre Valdo, le Paris Saint-Germain glane un nouveau titre de champion
+          de France, en 1994, deux ans avant de soulever son premier trophée européen, la Coupe des Vainqueurs de
+          Coupe.</p>
+        <img
+          src="https://www.psg.fr/media/36001/club-histoire-djorkaeff.jpg?width=500&height=333.3333333333333&bgcolor=ffffff"
+          alt="">
+        <p>Un titre qui scelle l’apothéose de la génération incarnée par Rai, Bernard Lama, Alain Roche, Paul Le
+          Guen, Daniel Bravo, Vincent Guérin, Youri Djorkaeff et Bruno Ngotty, inoubliable buteur en finale face au
+          Rapid de Vienne, à Bruxelles.</p>
+      </article>
+
+      <div class="titre-image">
+        <h2>Rêvons plus grand !</h2>
+        <img
+          src="https://www.psg.fr/media/36006/club-histoire-ibra.jpg?anchor=center&mode=crop&width=2000&height=1000&quality=80"
+          alt="">
+
+        <style>
+          .titre-image {
+            text-transform: uppercase;
+          }
+        </style>
+      </div>
+
+
+
+
+      <article>
+        <h3>L'AMBITION QATARIE</h3>
+        <p>Au début du XXIe siècle, malgré les éclairs de Ronaldinho et les buts en cascade de Pedro Pauleta (109
+          buts), Paris peine à retrouver son éclat. Avant de basculer dans un autre monde, en 2011, à l’arrivée de
+          Qatar Sports Investments et de son président Nasser Al-Khelaïfi. Un projet extrêmement ambitieux, incarné
+          par Zlatan Ibrahimovic, et aujourd’hui par Edinson Cavani devenu meilleur buteur de l’histoire du club (200
+          buts en 301 matches avant la saison 2019-2020), Kylian Mbappé, Neymar Jr, Marco Verratti ou encore Marquinhos
+          et qui poursuit avec détermination un horizon lumineux : porter le Paris Saint-Germain au sommet de l’Europe,
+          après en avoir déjà fait le club français le plus titré du haut de ses 47 titres, dont 29 depuis l’arrivée de
+          QSI.</p>
+        <p>Le Paris Saint-Germain, c’est aussi le Handball (21 titres nationaux depuis 2012) et la section féminine,
+          double finaliste de la Ligue des champions, vainqueur de la Coupe de France en 2018 et 2022 et championne de
+          France 2021.</p>
+        <p>Football, handball et féminines, trois sections désormais au sommet du sport européen et qui incarnent à
+          merveille les ambitions du Paris Saint-Germain.
+
+        </p>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f" aria-label="Facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter" aria-label="Twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram" aria-label="Instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube" aria-label="YouTube"></i></a>
+      </div>
+      <p>© 2025 PSG Fan Zone. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Exemple de script menu burger simplifié
+    const burger = document.getElementById('burger-menu');
+    const nav = document.querySelector('nav');
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('menu-open');
+    });
+
+    // Menu bouton visible sur desktop (simplifié)
+    document.getElementById('open-menu-btn').addEventListener('click', () => {
+      alert('Menu ouvert (fonction à implémenter)');
+    });
+  </script>
+</body>
+
+</html>
+
+

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Achraf Hakimi - PSG Fan Zone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+<style>
+  /* Variables de couleur et polices */
+  :root {
+    --psg-blue: #004170;
+    --psg-red: #DA291C;
+    --white: #FFFFFF;
+    --black: #000000;
+    --light-gray: #f9f9f9;
+    --border-gray: #eef2f5;
+    --dark-gray: #333;
+    --font-family: 'Poppins', sans-serif;
+  }
+
+  /* Reset et styles globaux */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--psg-blue);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--psg-red);
+    border-radius: 2px;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--psg-red);
+  }
+
+  /* Header et Navigation */
+  header {
+    background-color: var(--psg-blue);
+    color: var(--white);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: none;
+    margin: 0;
+    padding: 0 2rem;
+    width: 100%;
+  }
+
+  header a.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header a.logo img {
+    height: 50px;
+    margin-right: 15px;
+  }
+
+  header .logo h1 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 0;
+  }
+
+  .menu-button {
+    position: absolute;
+    left: 2rem;
+    background: none;
+    border: 2px solid var(--white);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .menu-button:hover {
+    background-color: var(--white);
+    color: var(--psg-blue);
+  }
+
+  .burger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    right: 2rem;
+  }
+
+  .burger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .hero {
+    height: 50vh;
+    min-height: 300px;
+    background: linear-gradient(
+        rgba(0, 20, 40, 0.7),
+        rgba(0, 40, 80, 0.55)
+      ),
+      url('https://cdn.psg.fr/image/600x600/players/hakimi.webp') no-repeat
+        center center/cover;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .hero h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .hero p {
+    font-size: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-style: italic;
+  }
+
+  /* Profile section */
+  .profile-container {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .profile-image {
+    flex: 0 0 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 0 4px var(--psg-blue);
+  }
+
+  .profile-image img {
+    width: 100%;
+    display: block;
+  }
+
+  .profile-info {
+    flex: 1 1 600px;
+  }
+
+  .profile-info h2 {
+    margin-top: 0;
+  }
+
+  .profile-info ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .profile-info ul li {
+    padding: 0.3rem 0;
+    font-size: 1.1rem;
+  }
+
+  .profile-info ul li strong {
+    color: var(--psg-red);
+    width: 140px;
+    display: inline-block;
+  }
+
+  /* Footer */
+  footer {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+
+  .footer-content {
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .social-links {
+    margin-bottom: 1rem;
+  }
+
+  .social-links a {
+    color: var(--white);
+    margin: 0 15px;
+    font-size: 1.2rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h2 {
+      font-size: 2.2rem;
+    }
+
+    .profile-container {
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .profile-image {
+      flex: 1 1 100%;
+      max-width: 300px;
+      margin: 0 auto 1.5rem auto;
+      box-shadow: 0 0 0 4px var(--psg-blue);
+    }
+
+    .profile-info {
+      flex: 1 1 100%;
+    }
+
+    .menu-button {
+      display: none;
+    }
+
+    .burger-menu {
+      display: flex;
+    }
+  }
+
+  /* Animation Keyframes */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <button class="menu-button" id="open-menu-btn">Menu</button>
+    <a href="file:///Users/stagiaire/Desktop/site-PSG-Adrien/index.html" class="logo">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/fr/thumb/8/86/Paris_Saint-Germain_Logo.svg/1200px-Paris_Saint-Germain_Logo.svg.png"
+        alt="Logo PSG"
+      />
+      <h1>PSG Fan Zone</h1>
+    </a>
+
+    <div class="header-actions">
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="search" placeholder="Rechercher..." class="search-input" />
+      </div>
+      <button class="burger-menu" id="burger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Achraf Hakimi</h2>
+  <p>Défenseur latéral droit - Numéro 2</p>
+</section>
+
+<main class="container">
+  <section class="profile-container" aria-label="Profil du joueur Achraf Hakimi">
+    <div class="profile-image">
+      <img
+        src="https://media.psg.fr/image/upload/c_limit,w_641/f_avif/q_85/v1/hakimi2-hover_y9oxbm?_a=BAVAZGDX0"
+        alt="Photo d'Achraf Hakimi"
+        width="220"
+        height="220"
+      />
+    </div>
+    <div class="profile-info">
+      <h2>Achraf Hakimi</h2>
+      <ul>
+        <li><strong>Numéro :</strong> 2</li>
+        <li><strong>Poste :</strong> Défenseur latéral droit</li>
+        <li><strong>Nationalité :</strong> Maroc</li>
+        <li><strong>Date de naissance :</strong> 4 novembre 1998</li>
+        <li>
+          <strong>Biographie :</strong>  
+          Achraf Hakimi, né le 4 novembre 1998 à Madrid, est un défenseur latéral droit reconnu pour sa vitesse et son agressivité offensive. Il joue au Paris Saint-Germain depuis 2021 et est un élément clé de la défense parisienne.
+        </li>
+      </ul>
+
+      <h3>Statistiques principales</h3>
+      <ul>
+        <li><strong>Matchs joués :</strong> 55</li>
+        <li><strong>Buts :</strong> 7</li>
+        <li><strong>Passes décisives :</strong> 15</li>
+        <li><strong>Cartons jaunes :</strong> 5</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2024 PSG Fan Zone. Tous droits réservés. Site de fan non officiel.</p>
+    <div class="social-links" aria-label="Liens réseaux sociaux">
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Exemple simple pour menu burger (si besoin)
+  const burgerMenu = document.getElementById('burger-menu');
+  burgerMenu?.addEventListener('click', () => {
+    alert('Menu burger cliqué ! (à implémenter)');
+  });
+</script>
+</body>
+</html>
